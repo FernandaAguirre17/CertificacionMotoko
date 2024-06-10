@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "certificacion_motoko_backend": {
+      "main": "src/certificacion_motoko_backend/main.mo",
+      "type": "motoko"
+    },
+    "certificacion_motoko_frontend": {
+      "dependencies": [
+        "certificacion_motoko_backend"
+      ],
+      "source": [
+        "src/certificacion_motoko_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "certificacion_motoko_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
