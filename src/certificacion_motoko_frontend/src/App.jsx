@@ -1,10 +1,15 @@
 import { useEffect, useState } from 'react';
 import { certificacion_motoko_backend } from 'declarations/certificacion_motoko_backend';
-import { Table } from 'react-bootstrap';
+import { Button, Col, NavLink, Table } from 'react-bootstrap';
+import { Container, Row, Card, Image } from 'react-bootstrap'; 
+import { Link, useNavigate } from 'react-router-dom';
+
+
 
 function App() {
   const [vapes, setVapes] = useState([]);
-  
+  const navigate = useNavigate()
+ 
   useEffect(() => {
     getVapes();
   }, []);
@@ -21,7 +26,14 @@ function App() {
       <Row>
         <Card>
           <Card.Body>
-            <Card.Title>Catalogo de vapes </Card.Title>
+            <Row>
+              <Col>
+               <Card.Title>Catalogo de vapes </Card.Title>
+              </Col>
+              <Col>
+               <Button variant="succes" onClick={()=>navigate("/Agregar vape")}>Agregar vape</Button>
+              </Col>
+            </Row>
             <Table>
               <thead>
                 <tr>
@@ -34,7 +46,7 @@ function App() {
               </thead>
               <tbody>
 
-               {
+              {
                vapes.length > 0 ? 
                vapes.map((vape)=>(
                 <tr>
@@ -45,9 +57,18 @@ function App() {
                 </tr> 
                ))
                : <tr></tr>
-               }
+              }
               </tbody>
             </Table>
+            <Col xs={6} md={4}>
+              <Image src="https://lacasadelpod.com/1508-large_default/vaper-desechable-sandia-fresa-ole-plus-5000-sin-nicotina-by-bud-vape.jpg" rounded />
+            </Col>
+            <Col xs={6} md={4}>
+              <Image src="https://lacasadelpod.com/1508-large_default/vaper-desechable-sandia-fresa-ole-plus-5000-sin-nicotina-by-bud-vape.jpg" roundedCircle />
+            </Col>
+            <Col xs={6} md={4}>
+              <Image src="https://lacasadelpod.com/1508-large_default/vaper-desechable-sandia-fresa-ole-plus-5000-sin-nicotina-by-bud-vape.jpg" thumbnail />
+            </Col>
           </Card.Body>
         </Card>
       </Row>
@@ -56,3 +77,4 @@ function App() {
 }
 
 export default App;
+

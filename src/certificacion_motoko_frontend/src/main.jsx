@@ -5,6 +5,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import App from './App';
+import Create from './Create';
 import './index.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import List from './List';
@@ -12,7 +13,11 @@ import List from './List';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App></App>,
+    element: <App />,
+  }, 
+  {
+    path: "/Agregar vape",
+    element: <Create />,
   }, 
 ]);
 

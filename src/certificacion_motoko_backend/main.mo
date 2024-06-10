@@ -41,25 +41,6 @@ actor VapesList {
     return Array.find<Vape>(Vapes, func(v) { v.id == id });
   };
 
-  public func updateVape(id:Nat, brand : Text, taste : Text, size : Text, price : Text) : async Bool {
-    let VapeToUpdate = Array.find<Vape>(Vapes, func(Vape) { Vape.id == id });
-
-    switch (VapeToUpdate) {
-      case (null) { return false };
-      case (?VapeToUpdate) {
-        let updatedVape = {
-          id = 1;
-          size = size;
-          price = price;
-          taste = taste;
-          brand = brand;
-        };
-        Vapes := Array.map<Vape, Vape>(Vapes, func(v) { if (v.id == id) { updatedVape } else { v } });
-        return true;
-      };
-    };
-  };
-
   public func deleteVape(id : Nat) : async Bool {
     let Vape = Array.find<Vape>(Vapes, func(Vape) { Vape.id == id });
     if (Vape != null) {
